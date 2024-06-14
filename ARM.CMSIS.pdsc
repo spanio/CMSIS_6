@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<package schemaVersion="1.7.31" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.31/schema/PACK.xsd">
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
   <name>CMSIS</name>
-  <description>CMSIS (Common Microcontroller Software Interface Standard)</description>
+  <description overview="./CMSIS/Documentation/Overview.md">CMSIS (Common Microcontroller Software Interface Standard)</description>
   <vendor>ARM</vendor>
   <license>LICENSE</license>
   <licenseSets>
@@ -15,10 +15,13 @@
   <releases>
     <release version="6.1.0">
       Active development ...
+      Added Overview.md for display on web index service
       CMSIS-Core: 6.1.0
         - Added support for Cortex-M52
         - Added deprecated CoreDebug symbols for CMSIS 5 compatibility
         - Added define CMSIS_DISABLE_DEPRECATED to hide deprecated symbols
+      CMSIS-Driver: 2.10.0
+        - Updated USB Host Interface API 2.4.0 (deprecated API for OHCI/EHCI Host Controller Interface (HCI))
     </release>
     <release version="5.9.0" date="2022-05-02">
       CMSIS-Core(M): 5.6.0
@@ -428,6 +431,7 @@
       <description>RTOS Kernel system tick timer interface</description>
       <files>
         <file category="header" name="CMSIS/RTOS2/Include/os_tick.h"/>
+        <file category="doc" name="CMSIS/Documentation/html/RTOS2/group__CMSIS__RTOS.html"/>
       </files>
     </api>
     <!-- CMSIS-RTOS API -->
@@ -524,7 +528,7 @@
         <file category="header" name="CMSIS/Driver/Include/Driver_USBD.h" />
       </files>
     </api>
-    <api Cclass="CMSIS Driver" Cgroup="USB Host" Capiversion="2.3.0" exclusive="0">
+    <api Cclass="CMSIS Driver" Cgroup="USB Host" Capiversion="2.4.0" exclusive="0">
       <description>USB Host Driver API for Cortex-M</description>
       <files>
         <file category="doc" name="CMSIS/Documentation/html/Driver/group__usbh__interface__gr.html" />
@@ -643,7 +647,7 @@
 
   <components>
     <!-- CMSIS-Core component -->
-    <component Cclass="CMSIS" Cgroup="CORE" Cversion="6.0.0"  condition="ARMv6_7_8-M Device" >
+    <component Cclass="CMSIS" Cgroup="CORE" Cversion="6.1.0"  condition="ARMv6_7_8-M Device" >
       <description>CMSIS-CORE for Cortex-M, SC000, SC300, Star-MC1, ARMv8-M, ARMv8.1-M</description>
       <files>
         <!-- CPU independent -->
@@ -656,7 +660,7 @@
       </files>
     </component>
 
-    <component Cclass="CMSIS" Cgroup="CORE" Cversion="1.2.1"  condition="ARMv7-A Device" >
+    <component Cclass="CMSIS" Cgroup="CORE" Cversion="6.1.0"  condition="ARMv7-A Device" >
       <description>CMSIS-CORE for Cortex-A</description>
       <files>
         <!-- CPU independent -->
@@ -782,7 +786,7 @@
         <file category="sourceC" attr="template" name="CMSIS/Driver/DriverTemplates/Driver_USBD.c" select="USB Device Driver"/>
       </files>
     </component>
-    <component Cclass="CMSIS Driver" Cgroup="USB Host" Csub="Custom" Cversion="1.0.0" Capiversion="2.3.0" custom="1">
+    <component Cclass="CMSIS Driver" Cgroup="USB Host" Csub="Custom" Cversion="1.0.0" Capiversion="2.4.0" custom="1">
       <description>Access to #include Driver_USBH.h file and code template for custom implementation</description>
       <files>
         <file category="header" name="CMSIS/Driver/Include/Driver_USBH.h" />

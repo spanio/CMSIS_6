@@ -3605,16 +3605,15 @@ typedef struct
 
 
 /**
-  \ingroup    CMSIS_core_register
-  \defgroup   CMSIS_register_aliases     Backwards Compatibility Aliases
-  \brief      Register alias definitions for backwards compatibility.
+  \defgroup   CMSIS_deprecated_aliases     Backwards Compatibility Aliases
+  \brief      Alias definitions present for backwards compatibility for deprecated symbols.
   @{
  */
+ 
+#ifndef CMSIS_DISABLE_DEPRECATED
 
 #define SCB_AIRCR_ENDIANESS_Pos            SCB_AIRCR_ENDIANNESS_Pos
 #define SCB_AIRCR_ENDIANESS_Msk            SCB_AIRCR_ENDIANNESS_Msk
-
-#ifndef CMSIS_DISABLE_DEPRECATED
 
 /* deprecated, CMSIS_5 backward compatibility */
 typedef struct
@@ -3776,6 +3775,7 @@ typedef struct
 #define CoreDebug_DSCSR_SBRSELEN_Msk       DCB_DSCSR_SBRSELEN_Msk
 
 #define CoreDebug           ((CoreDebug_Type *)     DCB_BASE)
+
 #if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)
 #define CoreDebug_NS        ((CoreDebug_Type *)     DCB_BASE_NS)
 #endif
